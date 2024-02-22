@@ -15,38 +15,79 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 const SingleProductPage = () => {
-  const {id}=useParams()
-  const history=useNavigate()
+  const { id } = useParams()
+  const history = useNavigate()
 
-   const {
+  const {
     single_product_loading: loading,
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext()
- 
-  
-   useEffect(()=>{
+
+  useEffect(() => {
     fetchSingleProduct(`${url}${id}`)
-  },[]) 
+  }, [])
 
-  useEffect(()=>{
-    if (error){
-      setTimeout(()=>{
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
         history("/")
-      },3000)
+      }, 3000)
     }
-  },[error])
+  }, [error])
 
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />
   }
-  if(error){
-    return <Error/>
+  if (error) {
+    return <Error />
   }
 
-  console.log(product)
-  return <h4>single product page</h4>
+  const {
+    name,
+    price,
+    description,
+    stock,
+    stars,
+    review,
+    id: sku,
+    company,
+    images,
+  } = product
+  return (
+    <Wrapper>
+      <PageHero title={name} product />
+      <div className='section section-center page'>
+        <Link to='/products' className='btn'>
+          back to products
+        </Link>
+        <div className='products-center'>
+          <ProductImages />
+          <section className='content'>
+            <h2>{name}</h2>
+            <Stars></Stars>
+            <h5 className='price'>{formatPrice(price)}</h5>
+            <p className='description'>{description}</p>
+            <p className='info'>
+              <span>Available : </span>
+              {stock > 0 ? "In Stock" : "out of stock"}
+            </p>
+            <p className='info'>
+              <span>SKU : </span>
+             {sku}
+            </p>
+            <p className='info'>
+              <span>Brand : </span>
+              {company}
+            </p>
+            <hr />
+            {stock>0 && <AddToCart/>}
+          </section>
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.main`
