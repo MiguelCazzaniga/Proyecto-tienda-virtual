@@ -16,6 +16,7 @@ import { Link } from "react-router-dom"
 
 const SingleProductPage = () => {
   const {id}=useParams()
+  const history=useNavigate()
 
    const {
     single_product_loading: loading,
@@ -24,9 +25,25 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext()
  
+  
    useEffect(()=>{
     fetchSingleProduct(`${url}${id}`)
   },[]) 
+
+  useEffect(()=>{
+    if (error){
+      setTimeout(()=>{
+        history("/")
+      },3000)
+    }
+  },[error])
+
+  if(loading){
+    return <Loading/>
+  }
+  if(error){
+    return <Error/>
+  }
 
   console.log(product)
   return <h4>single product page</h4>
