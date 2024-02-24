@@ -50,7 +50,7 @@ const SingleProductPage = () => {
     description,
     stock,
     stars,
-    review,
+    reviews,
     id: sku,
     company,
     images,
@@ -62,11 +62,11 @@ const SingleProductPage = () => {
         <Link to='/products' className='btn'>
           back to products
         </Link>
-        <div className='products-center'>
-          <ProductImages />
+        <div className='product-center'>
+          <ProductImages images={images} />
           <section className='content'>
             <h2>{name}</h2>
-            <Stars></Stars>
+            <Stars stars={stars} reviews={reviews}></Stars>
             <h5 className='price'>{formatPrice(price)}</h5>
             <p className='description'>{description}</p>
             <p className='info'>
@@ -75,14 +75,14 @@ const SingleProductPage = () => {
             </p>
             <p className='info'>
               <span>SKU : </span>
-             {sku}
+              {sku}
             </p>
             <p className='info'>
               <span>Brand : </span>
               {company}
             </p>
             <hr />
-            {stock>0 && <AddToCart/>}
+            {stock > 0 && <AddToCart />}
           </section>
         </div>
       </div>
