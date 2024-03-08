@@ -6,5 +6,6 @@ import Error from './ErrorPage.js'
 import PrivateRoute from './PrivateRoute.js'
 import Products from './ProductsPage.js'
 import SingleProduct from './SingleProductPage.js'
+import AuthWrappers from './AuthWrappers.js'
 
-export { About,SingleProduct,Products,Home, Cart, Checkout, Error, PrivateRoute }
+export { About,SingleProduct,Products,Home, Cart, Checkout, Error, PrivateRoute, AuthWrappers }

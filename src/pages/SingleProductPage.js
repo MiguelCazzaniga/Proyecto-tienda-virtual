@@ -16,7 +16,7 @@ import { Link } from "react-router-dom"
 
 const SingleProductPage = () => {
   const { id } = useParams()
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const {
     single_product_loading: loading,
@@ -32,7 +32,7 @@ const SingleProductPage = () => {
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        history("/")
+        navigate("/")
       }, 3000)
     }
   }, [error])

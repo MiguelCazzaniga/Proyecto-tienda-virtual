@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react"
 import styled from "styled-components"
 
@@ -5,7 +6,7 @@ const ProductImages = ({ images = [{ url: "" }] }) => {
   const [main, setMain] = useState(images[0])
   return (
     <Wrapper>
-      <img src={main.url} alt='main image' className='main' />
+      <img src={main.url} alt='Furniturenpm ' className='main' />
       <div className='gallery'>
         {images.map((image, index) => {
           return (
