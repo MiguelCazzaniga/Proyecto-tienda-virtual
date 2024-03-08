@@ -7,15 +7,14 @@ import heroBcg2 from '../assets/hero-bcg-2.jpeg'
 const Hero = () => {
   return <Wrapper className='section-center'>
     <article className="content">
-      <h1>Design your <br/>
-       comfort zone
+      <h1>Your Friendly Store <br/>
+    
        </h1>
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto ea repellat exercitationem quaerat rerum vel aliquid dignissimos quia laborum cum.</p>
       <Link to="/products" className="btn hero-btn">shop now</Link>    
     </article>
     <article className="img-container">
-      <img src={heroBcg} alt="nice table" className='main-img'/>
-      <img src={heroBcg2} alt="carpenter" className='accent-img'/>
+      <img src={heroBcg} alt="Customer choosing shoes" className='main-img'/>
     </article>
     </Wrapper>
 }
