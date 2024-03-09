@@ -82,3 +82,4 @@ const Wrapper = styled.section`
 `
 
 export default Hero
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum laudantium reprehenderit, nesciunt animi molestias distinctio cupiditate voluptatem vero ipsam nemo facere quo perferendis pariatur ut omnis amet, aliquid labore et doloribus corporis officia magnam cumque! Fuga praesentium earum assumenda aspernatur!
